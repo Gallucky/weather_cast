@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+    /* Setting the value equal to 1rem, the default is 16px */
+    font-size: 20px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: Rubik, "Calibri", serif;
+}
+
+.form-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: Rubik;
+}
+
+.container {
+    width: 50dvw;
+    height: 90dvh;
+
+    margin: 0 auto;
+    padding: 20px;
+
+    position: relative;
+    text-align: center;
+    border-radius: 20px;
+    opacity: 0.9;
+    font-family: Rubik;
+
+    box-shadow: 10px 10px 10px rgb(82 32 32/ 20%);
+    background: linear-gradient(135deg, #ff94bb, #7679d1);
+}
+
+input {
+    height: 1.5rem;
+    padding: 5px;
+    border-radius: 5px;
+
+    font-family: Rubik;
+    background-color: rgba(0, 0, 0, 0.159);
+}
+
+input:focus {
+    outline-color: rgb(2, 2, 246);
+}
+
+button {
+    width: 3rem;
+    height: 1.5rem;
+    font-size: 0.8rem !important;
+    padding: 0 !important;
+    font-family: Rubik;
+    font-weight: 500 !important;
+}
+
+#error-message {
+    width: 50dvw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    color: red;
+    font-size: 3.5rem;
+    font-family: teko;
+
+    transform: translate(-50%, -50%);
+}
+
+.weather-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin-top: 0;
+
+    transform: translate(-50%, -50%);
+}
+
+#weather-icon {
+    user-select: none;
+}
+
+#description {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+#temp {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+#lows-and-highs {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+#feels-like {
+    margin-top: 10px;
+    position: relative !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#feels-like .text {
+    font-size: 1.1rem;
+}
+
+#feels-like-info {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    margin-left: 5px;
+
+    background-image: url("./images/info24px.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    z-index: 999;
+    border-radius: 50%;
+
+    contain: layout;
+}
+
+#feels-like-info::after {
+    content: '"Feels-like temperature" is how the air actually feels on your skin due to wind and humidity Wind removes the thin layer of warm air around your body, making it feel colder, while high humidity slows sweat evaporation, making it feel warmer.';
+    width: max-content;
+    max-width: 200px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 0.75rem;
+    text-align: center;
+
+    display: none;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+
+    z-index: 999;
+    white-space: wrap;
+}
+
+#feels-like-info:hover::after {
+    display: block;
+}
+
+#humidity {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+#wind-speed {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+#sunrise-and-sunset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3rem;
+    font-size: 1.1rem;
+
+    position: relative;
+}
+
+#sunrise,
+#sunset {
+    width: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+#sunrise img,
+#sunset img {
+    width: 32px;
+    height: 32px;
+
+    font-size: 0.5rem;
+}
+
+.top-circle-arch {
+    width: 75%;
+    height: 100%;
+
+    position: absolute;
+    top: 0%;
+    left: 50%;
+
+    border-radius: 50%;
+    border: none;
+    border-top: 2px dashed black;
+
+    transform: translate(-50%, -50%);
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 970px) {
+    :root {
+        /* 1rem is now equal to 16px back to the default value. */
+        font-size: 16px;
+    }
+
+    #feels-like-info {
+        top: 56.5%;
+    }
+}
+
+/* Mobile Support */
+@media (max-width: 768px) {
+    :root {
+        /* 1rem is now equal to 13px */
+        font-size: 13px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    #feels-like-info {
+        scale: 0.8;
+        top: 57.25%;
+    }
+
+    .form-control {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+    }
+
+    #input-city {
+        width: 100%;
+        background: rgba(189, 189, 189, 0.689);
+    }
+
+    .search-btn {
+        width: 100%;
+        height: fit-content !important;
+        font-size: 1rem !important;
+    }
+
+    .weather-info {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 764px) and (min-width: 400px) {
+    :root {
+        font-size: 14.5px;
+    }
+
+    .form-control {
+        width: 50%;
+        justify-self: center;
+    }
+
+    .weather-info {
+        margin-top: 20px;
+    }
+
+    #feels-like-info {
+        top: 56.25%;
+    }
+}
+
+@media (max-width: 350px) {
+    #feels-like-info {
+        top: 57.25%;
+    }
+}
